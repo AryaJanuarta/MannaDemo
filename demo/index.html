@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dimanna Project - Personal Branding Agency</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #6B9B8E 0%, #5A8A7D 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            padding: 40px 20px 20px;
+            position: relative;
+            animation: fadeInDown 1s ease;
+        }
+
+        .logo-container {
+            background: white;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            animation: scaleIn 0.8s ease;
+        }
+
+        .logo-container img {
+            width: 120px;
+            height: auto;
+        }
+
+        .logo-text {
+            font-size: 18px;
+            color: #6B9B8E;
+            font-weight: 600;
+        }
+
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            animation: fadeIn 1.2s ease;
+        }
+
+        .nav-item {
+            font-size: 18px;
+            font-weight: 600;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item:hover {
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+
+        h1 {
+            font-size: 2.8em;
+            margin: 30px 0 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.95;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            margin: 60px 0;
+            animation: fadeInUp 1.4s ease;
+        }
+
+        .contact-title {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            display: block;
+            animation: slideInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .contact-card:nth-child(1) { animation-delay: 0.1s; }
+        .contact-card:nth-child(2) { animation-delay: 0.2s; }
+        .contact-card:nth-child(3) { animation-delay: 0.3s; }
+        .contact-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .contact-card h3 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+
+        /* Poster Section */
+        .poster-section {
+            margin: 60px 0;
+            animation: fadeIn 1.6s ease;
+        }
+
+        .poster-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .poster-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            transition: all 0.4s ease;
+            animation: scaleIn 0.8s ease;
+        }
+
+        .poster-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .poster-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Slider Section */
+        .slider-section {
+            margin: 80px 0;
+            animation: fadeInUp 1.8s ease;
+        }
+
+        .slider-title {
+            font-size: 2.2em;
+            text-align: center;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .slider-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 60px rgba(0,0,0,0.3);
+        }
+
+        .slider {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slider-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background: white;
+            width: 30px;
+            border-radius: 6px;
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.3);
+            border: none;
+            color: white;
+            font-size: 2em;
+            padding: 15px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            border-radius: 10px;
+        }
+
+        .slider-arrow:hover {
+            background: rgba(255,255,255,0.5);
+        }
+
+        .slider-arrow.prev {
+            left: 20px;
+        }
+
+        .slider-arrow.next {
+            right: 20px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            background: rgba(0,0,0,0.2);
+            animation: fadeIn 2s ease;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .subtitle {
+                font-size: 1em;
+            }
+
+            .contact-title, .slider-title {
+                font-size: 1.8em;
+            }
+
+            .nav-menu {
+                gap: 20px;
+            }
+
+            .nav-item {
+                font-size: 14px;
+            }
+
+            .slider {
+                height: 350px;
+            }
+
+            .slider-arrow {
+                font-size: 1.5em;
+                padding: 10px 15px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-container {
+                width: 120px;
+                height: 120px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .slider {
+                height: 250px;
+            }
+
+            .slider-arrow.prev {
+                left: 10px;
+            }
+
+            .slider-arrow.next {
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo-container">
+                <div class="logo-text">dimanna<span style="font-style: italic; font-weight: 300;">Project</span></div>
+            </div>
+
+            <nav class="nav-menu">
+                <span class="nav-item">Creative</span>
+                <span class="nav-item">Project</span>
+                <span class="nav-item">Agency</span>
+            </nav>
+
+            <h1>Manna | Dimanna Project</h1>
+            <p class="subtitle">Trusted by 100+ clients since 2020, we specialize in building impactful personal brands with a personalized touch.</p>
+        </header>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <h2 class="contact-title">CONTACT US</h2>
+            <div class="contact-grid">
+                <a href="https://wa.link/945y87" class="contact-card" target="_blank">
+                    <h3>Special Offer Awal Bulan</h3>
+                </a>
+                <a href="https://wa.link/64ncq0" class="contact-card" target="_blank">
+                    <h3>Mentoring 1 on 1</h3>
+                </a>
+                <a href="https://wa.link/uneb5l" class="contact-card" target="_blank">
+                    <h3>Workshop Offline Jakarta</h3>
+                </a>
+                <a href="https://wa.link/wu7q9y" class="contact-card" target="_blank">
+                    <h3>3 Days Online September</h3>
+                </a>
+            </div>
+        </section>
+
+        <!-- Poster Section -->
+        <section class="poster-section">
+            <div class="poster-grid">
+                <div class="poster-card">
+                    <svg viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <pattern id="pattern1" patternUnits="userSpaceOnUse" width="400" height="600">
+                                <rect width="400" height="600" fill="#f5f5f5"/>
+                                <text x="200" y="80" text-anchor="middle" font-size="16" fill="#6B9B8E" font-weight="600">dimannaProject</text>
+                                <rect x="70" y="100" width="260" height="30" fill="#6B9B8E" rx="5"/>
+                                <text x="200" y="120" text-anchor="middle" font-size="12" fill="white" font-weight="bold">DAPETIN BANYAK PELUANG BARU</text>
+                                <rect x="60" y="135" width="280" height="30" fill="#6B9B8E" rx="5"/>
+                                <text x="200" y="155" text-anchor="middle" font-size="11" fill="white" font-weight="bold">DI SOSIAL MEDIA LEWAT BANGUN</text>
+                                <text x="200" y="210" text-anchor="middle" font-size="48" fill="#6B9B8E" font-weight="bold">Personal</text>
+                                <text x="200" y="255" text-anchor="middle" font-size="48" fill="#2d5a4d" font-weight="bold">Branding</text>
+                                <ellipse cx="200" cy="420" rx="110" ry="130" fill="#d4b5a0"/>
+                                <rect x="140" y="330" width="120" height="180" rx="60" fill="#e8d4c4"/>
+                                <circle cx="200" cy="375" r="45" fill="#f0e0d0"/>
+                                <text x="50" y="310" font-size="12" fill="#333">DAY 1: Menemukan karakter personal brandingmu</text>
+                                <text x="50" y="325" font-size="12" fill="#333">DAY 2: Persiapan konten planner for business</text>
+                                <text x="50" y="340" font-size="12" fill="#333">DAY 3: Cara membangun sumber income baru</text>
+                                <rect x="40" y="510" width="150" height="60" fill="#6B9B8E" rx="10"/>
+                                <text x="115" y="530" text-anchor="middle" font-size="14" fill="white" font-weight="bold">3 DAYS ONLINE</text>
+                                <text x="115" y="548" text-anchor="middle" font-size="11" fill="white">BY ZOOM MEETING</text>
+                                <text x="115" y="565" text-anchor="middle" font-size="10" fill="white">SABTU 27 SEPT 2025</text>
+                            </pattern>
+                        </defs>
+                        <rect width="400" height="600" fill="url(#pattern1)"/>
+                    </svg>
+                </div>
+                <div class="poster-card">
+                    <svg viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="400" height="600" fill="#f8f8f8"/>
+                        <text x="200" y="80" text-anchor="middle" font-size="16" fill="#6B9B8E" font-weight="600">dimannaProject</text>
+                        <text x="200" y="130" text-anchor="start" font-size="14" fill="#333" x="60">Dapetin Banyak Peluang Baru</text>
+                        <text x="200" y="150" text-anchor="start" font-size="14" fill="#333" x="60">Di Sosial Media Lewat Bangun</text>
+                        <text x="200" y="210" text-anchor="middle" font-size="52" fill="#2d5a4d" font-weight="bold">Personal</text>
+                        <text x="200" y="265" text-anchor="middle" font-size="52" fill="#2d5a4d" font-weight="bold">Branding</text>
+                        <ellipse cx="280" cy="380" rx="90" ry="120" fill="#d4b5a0"/>
+                        <rect x="230" y="310" width="100" height="150" rx="50" fill="#e8d4c4"/>
+                        <circle cx="280" cy="350" r="35" fill="#f0e0d0"/>
+                        <circle cx="350" cy="380" r="40" fill="#6B9B8E" opacity="0.3"/>
+                        <rect x="60" y="320" width="30" height="30" rx="15" fill="#6B9B8E"/>
+                        <text x="100" y="340" font-size="11" fill="#333" font-weight="600">NAIKIN KARAKTER PERSONAL</text>
+                        <text x="100" y="353" font-size="10" fill="#333">BRANDING BY MANNA</text>
+                        <text x="260" y="510" font-size="16" fill="#333" font-weight="bold">TANGGAL</text>
+                        <text x="260" y="530" font-size="14" fill="#333">08 November 2025</text>
+                        <text x="260" y="555" font-size="16" fill="#333" font-weight="bold">PUKUL</text>
+                        <text x="260" y="575" font-size="14" fill="#333">09.00 - Selesai</text>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slider Section -->
+        <section class="slider-section">
+            <h2 class="slider-title">Glimpse of Offline Workshop</h2>
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="slide active">
+                        <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="800" height="500" fill="#4a4a4a"/>
+                            <rect x="50" y="50" width="300" height="400" fill="#6a6a6a" rx="10"/>
+                            <rect x="60" y="60" width="280" height="200" fill="#e8e8e8"/>
+                            <circle cx="650" cy="250" r="80" fill="#8B7355"/>
+                            <rect x="610" y="180" width="80" height="160" rx="40" fill="#A0826D"/>
+                            <circle cx="650" cy="200" r="30" fill="#C4A57B"/>
+                            <rect x="100" y="320" width="200" height="100" fill="#8B9B8E" opacity="0.5" rx="10"/>
+                            <text x="400" y="470" font-size="24" fill="white" font-weight="bold">Workshop Documentation</text>
+                        </svg>
+                    </div>
+                    <div class="slide">
+                        <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="800" height="500" fill="#3a3a3a"/>
+                            <rect x="100" y="100" width="600" height="300" fill="#5a5a5a" rx="15"/>
+                            <circle cx="250" cy="250" r="60" fill="#8B7355"/>
+                            <circle cx="400" cy="250" r="60" fill="#A0826D"/>
+                            <circle cx="550" cy="250" r="60" fill="#8B7355"/>
+                            <rect x="150" y="350" width="500" height="20" fill="#6B9B8E" rx="10"/>
+                            <text x="400" y="450" text-anchor="middle" font-size="22" fill="white" font-weight="bold">Interactive Session</text>
+                        </svg>
+                    </div>
+                    <div class="slide">
+                        <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="800" height="500" fill="#2a2a2a"/>
+                            <rect x="50" y="50" width="700" height="350" fill="#4a4a4a" rx="20"/>
+                            <circle cx="400" cy="200" r="70" fill="#8B7355"/>
+                            <rect x="360" y="150" width="80" height="140" rx="40" fill="#A0826D"/>
+                            <circle cx="400" cy="170" r="25" fill="#C4A57B"/>
+                            <rect x="150" y="320" width="500" height="40" fill="#6B9B8E" rx="10"/>
+                            <text x="400" y="460" text-anchor="middle" font-size="26" fill="white" font-weight="bold">Presentation Time</text>
+                        </svg>
+                    </div>
+                    <div class="slide">
+                        <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="800" height="500" fill="#454545"/>
+                            <rect x="100" y="80" width="600" height="320" fill="#656565" rx="15"/>
+                            <circle cx="200" cy="220" r="50" fill="#8B7355"/>
+                            <circle cx="350" cy="220" r="50" fill="#A0826D"/>
+                            <circle cx="500" cy="220" r="50" fill="#8B7355"/>
+                            <circle cx="650" cy="220" r="50" fill="#C4A57B"/>
+                            <rect x="150" y="330" width="500" height="30" fill="#6B9B8E" rx="15"/>
+                            <text x="400" y="455" text-anchor="middle" font-size="24" fill="white" font-weight="bold">Group Discussion</text>
+                        </svg>
+                    </div>
+                    <div class="slide">
+                        <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="800" height="500" fill="#3f3f3f"/>
+                            <rect x="150" y="100" width="500" height="280" fill="#5f5f5f" rx="15"/>
+                            <circle cx="400" cy="240" r="80" fill="#8B7355"/>
+                            <rect x="355" y="180" width="90" height="160" rx="45" fill="#A0826D"/>
+                            <circle cx="400" cy="200" r="35" fill="#C4A57B"/>
+                            <rect x="250" y="350" width="300" height="25" fill="#6B9B8E" rx="12"/>
+                            <text x="400" y="450" text-anchor="middle" font-size="28" fill="white" font-weight="bold">Success Stories</text>
+                        </svg>
+                    </div>
+                </div>
+                <button class="slider-arrow prev" onclick="changeSlide(-1)">‹</button>
+                <button class="slider-arrow next" onclick="changeSlide(1)">›</button>
+                <div class="slider-nav">
+                    <span class="slider-dot active" onclick="currentSlide(0)"></span>
+                    <span class="slider-dot" onclick="currentSlide(1)"></span>
+                    <span class="slider-dot" onclick="currentSlide(2)"></span>
+                    <span class="slider-dot" onclick="currentSlide(3)"></span>
+                    <span class="slider-dot" onclick="currentSlide(4)"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2025 Dimanna Project. All rights reserved.</p>
+            <p style="margin-top: 10px; opacity: 0.8;">Building impactful personal brands since 2020</p>
+        </footer>
+    </div>
+
+    <script>
+        let currentSlideIndex = 0;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.slider-dot');
+            
+            if (n >= slides.length) currentSlideIndex = 0;
+            if (n < 0) currentSlideIndex = slides.length - 1;
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            slides[currentSlideIndex].classList.add('active');
+            dots[currentSlideIndex].classList.add('active');
+        }
+
+        function changeSlide(n) {
+            currentSlideIndex += n;
+            showSlide(currentSlideIndex);
+        }
+
+        function currentSlide(n) {
+            currentSlideIndex = n;
+            showSlide(currentSlideIndex);
+        }
+
+        // Auto slide
+        setInterval(() => {
+            currentSlideIndex++;
+            showSlide(currentSlideIndex);
+        }, 5000);
+
+        // Smooth scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.contact-card, .poster-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
